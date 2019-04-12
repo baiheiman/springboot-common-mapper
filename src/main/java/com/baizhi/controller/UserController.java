@@ -10,11 +10,18 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping("insert")
+    public String insert(User user) {
+        userService.insert(user);
+
+        return "redirect:/user/selectAll";
+    }
 
     @RequestMapping("selectAll")
     public String selectAll(Map map) {

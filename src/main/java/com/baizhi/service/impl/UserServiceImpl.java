@@ -21,4 +21,11 @@ public class UserServiceImpl implements UserService {
 
         return list;
     }
+
+    @Override
+    public void insert(User user) {
+
+        int i = userDao.insertSelective(user);
+        System.out.println(i);
+    }
 }
